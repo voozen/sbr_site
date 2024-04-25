@@ -1,13 +1,13 @@
-package com.sbr.sbr_site;
+package tech.grypsiarze.znanySpec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SbrSiteApplicationTests {
+class ZnanySpecApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
