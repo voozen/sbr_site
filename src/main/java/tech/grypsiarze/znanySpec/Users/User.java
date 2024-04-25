@@ -5,6 +5,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class User implements UserImp{
     @Autowired
@@ -19,5 +21,9 @@ public class User implements UserImp{
         } catch (Exception error){
             return String.format("Error: %s",error);
         }
+    }
+    @Override
+    public List<UserStructure> showAllUsers(){
+        return entityManager.createQuery("SELECT u FROM UserStructure u").getResultList();
     }
 }

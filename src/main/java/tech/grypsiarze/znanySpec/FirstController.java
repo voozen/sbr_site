@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import tech.grypsiarze.znanySpec.Users.User;
 import tech.grypsiarze.znanySpec.Users.UserStructure;
 
+import java.util.List;
+
 @RestController
 public class FirstController {
     @Autowired
@@ -15,8 +17,8 @@ public class FirstController {
 
 
     @GetMapping("/")
-    public String start(){
-        return "Hi! :)";
+    public List<UserStructure> start(){
+        return theUser.showAllUsers();
     }
 
     @PostMapping("/user/register")
