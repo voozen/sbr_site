@@ -1,4 +1,4 @@
-package tech.grypsiarze.znanySpec.users;
+package tech.grypsiarze.users;
 
 import jakarta.persistence.*;
 import lombok.Data;
