@@ -1,10 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #201E23;
+  color: white;
 }
 
 code {
@@ -15,19 +18,24 @@ code {
 .navbar {
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: 50px;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: white;
 }
 
 .navbar-link {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  padding: 0.5em;
+}
+
+.navbar-option {
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-link:hover {
-  color: white;
+  color: #5D5FEF
 }

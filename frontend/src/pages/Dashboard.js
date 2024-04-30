@@ -1,13 +1,13 @@
 import React from 'react';
 
-function About() {
+function Dashboard() {
     return (
         <>
             <div className='container'>
-                about
+                dashboard
             </div>
         </>
     );
 }
 
-export default About;
+export default Dashboard;
