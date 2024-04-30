@@ -1,4 +1,4 @@
-package tech.grypsiarze.znanySpec.Users;
+package tech.grypsiarze.znanySpec.users;
 
 import java.util.List;
 

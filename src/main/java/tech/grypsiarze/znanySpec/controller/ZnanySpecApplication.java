@@ -1,4 +1,4 @@
-package tech.grypsiarze.znanySpec;
+package tech.grypsiarze.znanySpec.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

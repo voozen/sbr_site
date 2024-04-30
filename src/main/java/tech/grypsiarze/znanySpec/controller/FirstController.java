@@ -1,12 +1,13 @@
-package tech.grypsiarze.znanySpec;
+package tech.grypsiarze.znanySpec.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.grypsiarze.znanySpec.Users.User;
-import tech.grypsiarze.znanySpec.Users.UserStructure;
+
+import tech.grypsiarze.znanySpec.users.User;
+import tech.grypsiarze.znanySpec.users.UserStructure;
 
 import java.util.List;
 

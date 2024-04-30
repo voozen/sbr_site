@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar';
 function Home() {
     return (
         <>
-            <div className='container'>
+            <div style={{display: 'grid', width: '100%'}}>
                 home
                 <SearchBar />
             </div>
