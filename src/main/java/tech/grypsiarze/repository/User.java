@@ -1,14 +1,16 @@
-package tech.grypsiarze.users;
+package tech.grypsiarze.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import tech.grypsiarze.model.UserStructure;
+import tech.grypsiarze.implementations.UserImp;
 
 import java.util.List;
 
 @Repository
-public class User implements UserImp{
+public class User implements UserImp {
     @Autowired
     EntityManager entityManager;
 

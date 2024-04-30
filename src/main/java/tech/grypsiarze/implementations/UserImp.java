@@ -1,4 +1,6 @@
-package tech.grypsiarze.users;
+package tech.grypsiarze.implementations;
+
+import tech.grypsiarze.model.UserStructure;
 
 import java.util.List;
 

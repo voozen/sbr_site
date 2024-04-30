@@ -1,4 +1,4 @@
-package tech.grypsiarze.users;
+package tech.grypsiarze.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
