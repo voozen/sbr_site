@@ -13,9 +13,9 @@ import java.util.List;
 
 @RestController
 public class FirstController {
+    
     @Autowired
     User theUser;
-
 
     @GetMapping("/")
     public List<UserStructure> start(){
@@ -26,4 +26,5 @@ public class FirstController {
     public String register(@RequestBody UserStructure userData){
         return theUser.save(userData);
     }
+
 }
