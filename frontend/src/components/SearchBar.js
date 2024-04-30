@@ -58,11 +58,20 @@ function CityInputField({ filterText, onFilterTextChange }) {
     );
 }
 
-function SearchButton({ setDoctors }) {
+function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
     function handleClick() {
-        axios.get('http://localhost:8080/searchDoctor')
+        const params = {};
+        if (mainFilterText) {
+            params.mainFilter = mainFilterText;
+        }
+        if (cityFilterText) {
+            params.cityFilter = cityFilterText;
+        }
+
+        axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter + '&cit=' + params.cityFilter)
             .then(response => {
                 setDoctors(response.data);
+                console.log(params.mainFilter);
             })
             .catch(error => {
                 console.error('There was a problem with your axios operation:', error);
@@ -135,7 +144,7 @@ function SearchBar() {
                     onFilterTextChange={setCityFilterText}
                 />
             </div>
-            <SearchButton setDoctors={setDoctors} />
+            <SearchButton setDoctors={setDoctors} mainFilterText={mainFilterText} cityFilterText={cityFilterText} />
             <DoctorTable doctors={doctors} />
         </div>
     );
