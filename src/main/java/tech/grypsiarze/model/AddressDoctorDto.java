@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AddressDoctorDto {
-    private AddressStructure addressData;
-    private DoctorStructure doctorData;
+  private AddressStructure addressData;
+  private DoctorStructure doctorData;
 }
