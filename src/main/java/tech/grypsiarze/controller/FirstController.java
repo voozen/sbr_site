@@ -3,6 +3,8 @@ package tech.grypsiarze.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import tech.grypsiarze.model.AddressDoctorDto;
+import tech.grypsiarze.model.AddressStructure;
 import tech.grypsiarze.model.DoctorStructure;
 import tech.grypsiarze.repository.Doctor;
 import tech.grypsiarze.repository.User;
@@ -24,7 +26,7 @@ public class FirstController {
         return theUser.showAllUsers();
     }
 
-    @PostMapping("/user/register")
+    @PostMapping("/register")
     public String register(@RequestBody UserStructure userData){
         return theUser.save(userData);
     }
@@ -35,5 +37,11 @@ public class FirstController {
         if (cat==null) cat="%";
         if (cit == null) cit ="%";
         return theDoctor.findDoctors(cat,cit);
+    }
+    @PostMapping("/saveDoctor")
+    public String doctorSave(@RequestBody AddressDoctorDto request){
+        AddressStructure addressData = request.getAddressData();
+        DoctorStructure doctorData = request.getDoctorData();
+        return theDoctor.saveDoctor(addressData,doctorData);
     }
 }
