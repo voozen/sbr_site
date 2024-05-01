@@ -61,21 +61,35 @@ function CityInputField({ filterText, onFilterTextChange }) {
 function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
     function handleClick() {
         const params = {};
-        if (mainFilterText) {
+        if (mainFilterText && cityFilterText) {
             params.mainFilter = mainFilterText;
-        }
-        if (cityFilterText) {
             params.cityFilter = cityFilterText;
-        }
-
-        axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter + '&cit=' + params.cityFilter)
+            axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter + '&cit=' + params.cityFilter)
             .then(response => {
                 setDoctors(response.data);
-                console.log(params.mainFilter);
             })
             .catch(error => {
                 console.error('There was a problem with your axios operation:', error);
             });
+        } else if (mainFilterText) {
+            params.mainFilter = mainFilterText;
+            axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter)
+            .then(response => {
+                setDoctors(response.data);
+            })
+            .catch(error => {
+                console.error('There was a problem with your axios operation:', error);
+            });
+        } else if (cityFilterText) {
+            params.cityFilter = cityFilterText;
+            axios.get('http://localhost:8080/searchDoctor?cit=' + params.cityFilter)
+            .then(response => {
+                setDoctors(response.data);
+            })
+            .catch(error => {
+                console.error('There was a problem with your axios operation:', error);
+            });
+        }
     }
 
     return (
