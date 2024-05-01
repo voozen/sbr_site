@@ -3,18 +3,15 @@ import React from 'react';
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Route, Routes, Link } from 'react-router-dom';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Dashboard from '../pages/Dashboard';
 
 function Navbar() {
-	const navRef = useRef();
+  const navRef = useRef();
 
-	const showNavbar = () => {
-		navRef.current.classList.toggle(
-			"responsive_nav"
-		);
-	};
+  const showNavbar = () => {
+    navRef.current.classList.toggle(
+      "responsive_nav"
+    );
+  };
 
   return (
     <>
@@ -48,13 +45,6 @@ function Navbar() {
           <FaBars />
         </button>
       </header>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </div>
     </>
   );
 }

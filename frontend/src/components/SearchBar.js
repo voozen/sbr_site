@@ -4,11 +4,11 @@ import axios from 'axios';
 function SearchBarLabel() {
     return (
         <div>
-            <span style={{fontSize: '1.5em', fontWeight: '600'}}>
+            <span style={{ fontSize: '1.5em', fontWeight: '600' }}>
                 Znajdź lekarza i umów<br />
                 wizytę<br />
             </span>
-            <span style={{fontSize: '1.4em', color: '#C0C0C0', fontWeight: '600'}}>
+            <span style={{ fontSize: '1.4em', color: '#C0C0C0', fontWeight: '600' }}>
                 Wybierz spośród tysięcy<br />
                 specjalistów z całej Polski
             </span>
@@ -18,11 +18,11 @@ function SearchBarLabel() {
 
 function MainInputField({ filterText, onFilterTextChange }) {
     return (
-        <div style={{paddingTop: '0.5em', paddingBottom: '0.5em'}}>
-            <input 
-                type='text' 
-                value={filterText} 
-                placeholder='Specjalizacja, badanie...' 
+        <div style={{ paddingTop: '0.5em', paddingBottom: '0.5em' }}>
+            <input
+                type='text'
+                value={filterText}
+                placeholder='Specjalizacja, badanie...'
                 onChange={(e) => onFilterTextChange(e.target.value)}
                 style={{
                     borderRadius: '0.25em',
@@ -39,11 +39,11 @@ function MainInputField({ filterText, onFilterTextChange }) {
 
 function CityInputField({ filterText, onFilterTextChange }) {
     return (
-        <div style={{paddingBottom: '0.5em'}}>
-            <input 
-                type='text' 
-                value={filterText} 
-                placeholder='Miasto...' 
+        <div style={{ paddingBottom: '0.5em' }}>
+            <input
+                type='text'
+                value={filterText}
+                placeholder='Miasto...'
                 onChange={(e) => onFilterTextChange(e.target.value)}
                 style={{
                     borderRadius: '0.25em',
@@ -61,34 +61,40 @@ function CityInputField({ filterText, onFilterTextChange }) {
 function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
     function handleClick() {
         const params = {};
+        params.mainFilter = mainFilterText;
+        params.cityFilter = cityFilterText;
         if (mainFilterText && cityFilterText) {
-            params.mainFilter = mainFilterText;
-            params.cityFilter = cityFilterText;
-            axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter + '&cit=' + params.cityFilter)
-            .then(response => {
-                setDoctors(response.data);
-            })
-            .catch(error => {
-                console.error('There was a problem with your axios operation:', error);
-            });
+            axios
+                .get(
+                    'http://localhost:8080/searchDoctor?cat=' +
+                        params.mainFilter +
+                        '&cit=' +
+                        params.cityFilter
+                )
+                .then((response) => {
+                    setDoctors(response.data);
+                })
+                .catch((error) => {
+                    console.error('There was a problem with your axios operation:', error);
+                });
         } else if (mainFilterText) {
-            params.mainFilter = mainFilterText;
-            axios.get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter)
-            .then(response => {
-                setDoctors(response.data);
-            })
-            .catch(error => {
-                console.error('There was a problem with your axios operation:', error);
-            });
+            axios
+                .get('http://localhost:8080/searchDoctor?cat=' + params.mainFilter)
+                .then((response) => {
+                    setDoctors(response.data);
+                })
+                .catch((error) => {
+                    console.error('There was a problem with your axios operation:', error);
+                });
         } else if (cityFilterText) {
-            params.cityFilter = cityFilterText;
-            axios.get('http://localhost:8080/searchDoctor?cit=' + params.cityFilter)
-            .then(response => {
-                setDoctors(response.data);
-            })
-            .catch(error => {
-                console.error('There was a problem with your axios operation:', error);
-            });
+            axios
+                .get('http://localhost:8080/searchDoctor?cit=' + params.cityFilter)
+                .then((response) => {
+                    setDoctors(response.data);
+                })
+                .catch((error) => {
+                    console.error('There was a problem with your axios operation:', error);
+                });
         }
     }
 
@@ -102,7 +108,8 @@ function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
                     border: '0.1em solid #666',
                     background: '#FFF'
                 }}
-                onClick={handleClick}>
+                onClick={handleClick}
+            >
                 Szukaj
             </button>
         </div>
@@ -124,7 +131,7 @@ function DoctorTable({ doctors }) {
                 </tr>
             </thead>
             <tbody>
-                {doctors.map(doctor => (
+                {doctors.map((doctor) => (
                     <tr key={doctor.doctorID}>
                         <td>{doctor.doctorID}</td>
                         <td>{doctor.firstName}</td>
@@ -146,19 +153,17 @@ function SearchBar() {
     const [doctors, setDoctors] = useState([]);
 
     return (
-        <div style={{display: 'grid', justifyContent: 'center'}}>
+        <div style={{ display: 'grid', justifyContent: 'center' }}>
             <SearchBarLabel />
             <div>
-                <MainInputField 
-                    filterText={mainFilterText}
-                    onFilterTextChange={setMainFilterText}
-                />
-                <CityInputField
-                    filterText={cityFilterText}
-                    onFilterTextChange={setCityFilterText}
-                />
+                <MainInputField filterText={mainFilterText} onFilterTextChange={setMainFilterText} />
+                <CityInputField filterText={cityFilterText} onFilterTextChange={setCityFilterText} />
             </div>
-            <SearchButton setDoctors={setDoctors} mainFilterText={mainFilterText} cityFilterText={cityFilterText} />
+            <SearchButton
+                setDoctors={setDoctors}
+                mainFilterText={mainFilterText}
+                cityFilterText={cityFilterText}
+            />
             <DoctorTable doctors={doctors} />
         </div>
     );
