@@ -22,7 +22,7 @@ public class DoctorStructure {
     private int addressID;
 
     @Column(name = "phone_number")
-    private String phoneNumber;
+        private String phoneNumber;
 
     @Column(name = "city")
     private String city;
