@@ -7,6 +7,7 @@ import tech.grypsiarze.implementations.DoctorImp;
 import tech.grypsiarze.model.DoctorStructure;
 
 import java.util.List;
+
 @Repository
 public class Doctor implements DoctorImp {
     @Autowired
