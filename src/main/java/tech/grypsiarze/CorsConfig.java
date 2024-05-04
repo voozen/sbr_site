@@ -10,8 +10,8 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://grypsiarze.tech", "https://localhost:3000") // Dodaj adres URL Twojej aplikacji React
-                .allowedMethods("GET", "POST", "PUT", "DELETE") // Dodaj dozwolone metody HTTP
-                .allowedHeaders("*"); // Dodaj dozwolone nagłówki (możesz również wymienić je ręcznie)
+                .allowedOrigins("http://grypsiarze.tech")
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedHeaders("*");
     }
 }
