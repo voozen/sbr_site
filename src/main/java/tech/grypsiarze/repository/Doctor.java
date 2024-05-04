@@ -10,6 +10,7 @@ import tech.grypsiarze.model.AddressStructure;
 import tech.grypsiarze.model.DoctorStructure;
 
 import java.util.List;
+
 @Repository
 public class Doctor implements DoctorImp {
     @Autowired
