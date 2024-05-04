@@ -22,7 +22,11 @@ public class FirstController {
     Doctor theDoctor;
 
     @GetMapping("/")
-    public List<UserStructure> start(){
+    public String start(){
+        return "Grypsiarze backend working fine!";
+    }
+    @GetMapping("/users/showall")
+    public List<UserStructure> showAllUsers(){
         return theUser.showAllUsers();
     }
 
