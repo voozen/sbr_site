@@ -1,13 +1,15 @@
 package tech.grypsiarze.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import tech.grypsiarze.implementations.UserImp;
 import tech.grypsiarze.model.AddressDoctorDto;
 import tech.grypsiarze.model.AddressStructure;
 import tech.grypsiarze.model.DoctorStructure;
 import tech.grypsiarze.repository.Doctor;
-import tech.grypsiarze.repository.User;
 import tech.grypsiarze.model.UserStructure;
 
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
 public class FirstController {
     
     @Autowired
-    User theUser;
+    UserImp theUser;
 
     @Autowired
     Doctor theDoctor;
@@ -27,12 +29,17 @@ public class FirstController {
     }
     @GetMapping("/users/showall")
     public List<UserStructure> showAllUsers(){
-        return theUser.showAllUsers();
+        return theUser.findAll();
     }
 
     @PostMapping("/register")
-    public String register(@RequestBody UserStructure userData){
-        return theUser.save(userData);
+    public ResponseEntity<String> register(@RequestBody UserStructure userData) {
+        try {
+            theUser.save(userData);
+            return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering user");
+        }
     }
 
     @GetMapping("/searchDoctor")
