@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
+import '../styles/pages/Home.css';
 
 function Home() {
     return (

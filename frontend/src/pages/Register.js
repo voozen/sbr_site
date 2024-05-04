@@ -1,10 +1,13 @@
 import React from 'react';
+import '../styles/pages/Register.css';
+import '../components/RegisterForm';
+import RegisterForm from '../components/RegisterForm';
 
 function Register() {
     return (
         <>
-            <div style={{display: 'grid', width: '100%'}}>
-                sign up
+            <div style='container'>
+                <RegisterForm />
             </div>
         </>
     );

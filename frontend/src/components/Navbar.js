@@ -1,4 +1,4 @@
-import "../styles/Navbar.css";
+import "../styles/components/Navbar.css";
 import React from 'react';
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -21,11 +21,6 @@ function Navbar() {
           <ul className='navbar-option'>
             <Link className='navbar-link' to="/">
               home
-            </Link>
-          </ul>
-          <ul className='navbar-option'>
-            <Link className='navbar-link' to="/dashboard">
-              dashboard
             </Link>
           </ul>
           <ul className='navbar-option'>
