@@ -66,7 +66,7 @@ function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
         if (mainFilterText && cityFilterText) {
             axios
                 .get(
-                    'http://130.61.53.214:8080/searchDoctor?cat=' +
+                    'https://130.61.53.214:8080/searchDoctor?cat=' +
                         params.mainFilter +
                         '&cit=' +
                         params.cityFilter
@@ -79,7 +79,7 @@ function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
                 });
         } else if (mainFilterText) {
             axios
-                .get('http://130.61.53.214:8080/searchDoctor?cat=' + params.mainFilter)
+                .get('https://130.61.53.214:8080/searchDoctor?cat=' + params.mainFilter)
                 .then((response) => {
                     setDoctors(response.data);
                 })
@@ -88,7 +88,7 @@ function SearchButton({ setDoctors, mainFilterText, cityFilterText }) {
                 });
         } else if (cityFilterText) {
             axios
-                .get('http://130.61.53.214:8080/searchDoctor?cit=' + params.cityFilter)
+                .get('https://130.61.53.214:8080/searchDoctor?cit=' + params.cityFilter)
                 .then((response) => {
                     setDoctors(response.data);
                 })
