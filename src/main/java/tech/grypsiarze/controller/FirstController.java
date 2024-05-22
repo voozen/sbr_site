@@ -5,11 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import tech.grypsiarze.implementations.Doctor;
 import tech.grypsiarze.implementations.UserImp;
 import tech.grypsiarze.model.AddressDoctorDto;
 import tech.grypsiarze.model.AddressStructure;
 import tech.grypsiarze.model.DoctorStructure;
-import tech.grypsiarze.repository.Doctor;
 import tech.grypsiarze.model.UserStructure;
 
 import java.util.List;

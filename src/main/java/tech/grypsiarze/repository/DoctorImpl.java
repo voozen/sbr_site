@@ -1,18 +1,17 @@
 package tech.grypsiarze.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import tech.grypsiarze.implementations.DoctorImp;
+import tech.grypsiarze.implementations.DoctorFunctions;
 import tech.grypsiarze.model.AddressStructure;
 import tech.grypsiarze.model.DoctorStructure;
 
 import java.util.List;
 
 @Repository
-public class Doctor implements DoctorImp {
+public class DoctorImpl implements DoctorFunctions {
     @Autowired
     EntityManager entityManager;
 
